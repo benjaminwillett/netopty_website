@@ -238,7 +238,7 @@ def _real_identifiers():
     if not os.environ.get("NETOPTY_PRIVATE_RULES") or not rules_path.is_file():
         return None
     rules = json.loads(rules_path.read_text(encoding="utf-8"))
-    store = Path.home() / "AppData" / "Local" / "Devopty" / "artifacts"
+    store = Path.home() / "AppData" / "Local" / "Netopty" / "artifacts"
     roots = [p for p in store.glob("*") if p.is_dir() and not p.name.startswith(("_", "Riverside"))]
     names, serials, macs, ips = set(), set(), set(), set()
     for root in roots:

@@ -109,9 +109,9 @@ The engine refuses artifact roots inside its own checkout, so the work folder mu
   - `config/` (site map), `.env`, `known_hosts`, `logs`, `backups`.
 - **`verify_engine_copy()` rejects** any other file.
 - **The engine runs with:**
-  - a synthetic customer (`DEVOPTY_CUSTOMER`) and a synthetic site map;
+  - a synthetic customer (`NETOPTY_CUSTOMER`) and a synthetic site map;
   - a non-existent WAN export path;
-  - `ASBUILT_PANORAMA=offline` and `DEVOPTY_NO_ENV_FILES=1`.
+  - `ASBUILT_PANORAMA=offline` and `NETOPTY_NO_ENV_FILES=1`.
 
   So the offline report cannot read customer reference data even by its fallback paths.
 

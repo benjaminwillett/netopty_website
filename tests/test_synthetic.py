@@ -679,7 +679,7 @@ def test_history_generation_runs_on_either_engine(tmp_path, monkeypatch, with_sc
     services = _STUB_SERVICES.replace("LIVE_GATHER = {}", "LIVE_GATHER = {}\nREQUIRES_SCOPE = False")
     if with_scope:
         services += _STUB_SCOPE
-    (eng / "devopty_services.py").write_text(services, encoding="utf-8")
+    (eng / "netopty_services.py").write_text(services, encoding="utf-8")
     for name in ("asbuilt_pdf", "asbuilt_snapshot", "asbuilt_findings", "pdf_exporter"):
         (eng / f"{name}.py").write_text("from datetime import datetime\n", encoding="utf-8")
     root = tmp_path / "artifacts"
@@ -696,7 +696,7 @@ def test_history_generation_fails_loudly_when_the_engine_cannot_document(tmp_pat
     eng = tmp_path / "engine"
     eng.mkdir()
     (eng / "asbuilt_extras.py").write_text(_STUB_EXTRAS, encoding="utf-8")
-    (eng / "devopty_services.py").write_text(_STUB_SERVICES.replace("LIVE_GATHER = {}", "LIVE_GATHER = {}\nREQUIRES_SCOPE = True"),
+    (eng / "netopty_services.py").write_text(_STUB_SERVICES.replace("LIVE_GATHER = {}", "LIVE_GATHER = {}\nREQUIRES_SCOPE = True"),
                                              encoding="utf-8")       # needs a scope it cannot be given
     for name in ("asbuilt_pdf", "asbuilt_snapshot", "asbuilt_findings", "pdf_exporter"):
         (eng / f"{name}.py").write_text("", encoding="utf-8")

@@ -56,8 +56,8 @@ def platform_root() -> Path:
     if not value:
         raise SystemExit(f"set {PLATFORM_SETTING} (or pass --platform) to the Netopty platform checkout")
     root = Path(value).resolve()
-    if not (root / "devopty.py").is_file():
-        raise SystemExit(f"{PLATFORM_SETTING}={root}: not a Netopty platform checkout (no devopty.py)")
+    if not (root / "netopty.py").is_file():
+        raise SystemExit(f"{PLATFORM_SETTING}={root}: not a Netopty platform checkout (no netopty.py)")
     return root
 
 
@@ -119,16 +119,16 @@ def verify_engine_copy():
 
 def env() -> dict:
     # PYTHONPATH too: the engine uses the platform's own environment, and its evidence boundary refuses any other path.
-    e = {k: v for k, v in os.environ.items() if not k.startswith(("DEVOPTY_", "ASBUILT_", "NETOPTY_")) and k != "PYTHONPATH"}
+    e = {k: v for k, v in os.environ.items() if not k.startswith(("NETOPTY_", "ASBUILT_")) and k != "PYTHONPATH"}
     e.update({
-        "DEVOPTY_ARTIFACT_ROOT": str(WORK / "artifacts"),
+        "NETOPTY_ARTIFACT_ROOT": str(WORK / "artifacts"),
         # Never this machine's configuration: a customer's conventions or WAN clouds must not reach the demo.
-        "DEVOPTY_HOME": str(WORK / "home"),
-        "DEVOPTY_NAMING_CONVENTIONS": "none",
-        "DEVOPTY_CUSTOMER": CUSTOMER,
-        "DEVOPTY_SITE_MAP": str(WORK / "site_map.json"),
-        "DEVOPTY_WAN_EXPORT": str(WORK / "no-wan-export.csv"),     # does not exist: no WAN data
-        "DEVOPTY_NO_ENV_FILES": "1",
+        "NETOPTY_HOME": str(WORK / "home"),
+        "NETOPTY_NAMING_CONVENTIONS": "none",
+        "NETOPTY_CUSTOMER": CUSTOMER,
+        "NETOPTY_SITE_MAP": str(WORK / "site_map.json"),
+        "NETOPTY_WAN_EXPORT": str(WORK / "no-wan-export.csv"),     # does not exist: no WAN data
+        "NETOPTY_NO_ENV_FILES": "1",
         "ASBUILT_PANORAMA": "offline",
         "ASBUILT_LOGO": str(WORK / "netopty_logo.png"),
         "ASBUILT_AUTHOR": "Netopty",
@@ -202,7 +202,7 @@ JULY_COLLECTED = (2026, 7, 20, 10, 14)
 JULY_DOCUMENTED = (2026, 7, 20, 10, 40, 0)
 
 # The engine's own document step, as the menu runs it after a live collection ("Document
-# network": devopty_services.document_from_collection with history recording on), on the July
+# network": netopty_services.document_from_collection with history recording on), on the July
 # evidence. Two differences from a live run, both so the build never reaches anything outside
 # this machine and the record carries the collection's date: NetBox and the interactive maps are
 # not consulted (with_netbox / with_maps off), and the engine's clock reads the July time.
@@ -215,7 +215,7 @@ class _Clock(_dt.datetime):
     def now(cls, tz=None):
         return T if tz is None else T.replace(tzinfo=tz)
 
-import devopty_services as svc, asbuilt_extras, asbuilt_pdf, asbuilt_snapshot, asbuilt_findings, pdf_exporter
+import netopty_services as svc, asbuilt_extras, asbuilt_pdf, asbuilt_snapshot, asbuilt_findings, pdf_exporter
 _real = _dt.datetime
 for m in list(sys.modules.values()):
     if m is not _dt and getattr(m, "datetime", None) is _real:
@@ -319,9 +319,9 @@ def run_reports(sites=None) -> dict:
 
 
 def _run_report(site, out, root) -> Path:
-    r = subprocess.run([platform_python(), "devopty.py", "report", "--site", site, "--output", str(out / site),
+    r = subprocess.run([platform_python(), "netopty.py", "report", "--site", site, "--output", str(out / site),
                         "--runs-dir", str(WORK / "runs"), "--json", str(WORK / f"report_run_{site}.json")],
-                       cwd=ENGINE, env={**env(), "DEVOPTY_ARTIFACT_ROOT": root},
+                       cwd=ENGINE, env={**env(), "NETOPTY_ARTIFACT_ROOT": root},
                        capture_output=True, text=True, encoding="utf-8")
     found = sorted((out / site).rglob("devices_report_*.pdf"))
     status = [ln for ln in r.stdout.splitlines() if "Status:" in ln or "validation" in ln.lower()]
