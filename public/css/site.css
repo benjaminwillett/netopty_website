@@ -558,6 +558,8 @@ p { margin: 0; }
   background: var(--text);
 }
 .vendor-grid img { width: 100%; max-width: 148px; height: 48px; object-fit: contain; }
+.vendor-grid .vendor-card-labeled { align-content: center; gap: 4px; }
+.vendor-label { color: var(--bg); font-size: 12px; font-weight: 600; line-height: 1.25; }
 .vendor-support .vendor-note { color: var(--text-2); margin: 16px auto 0; max-width: 680px; }
 
 @media (max-width: 600px) {
