@@ -576,3 +576,23 @@ p { margin: 0; }
   width: 100%;
   border-radius: var(--radius);
 }
+
+/* Hospital documentation cost and effort infographic */
+.cost-infographic { margin: 0 0 24px; padding: clamp(20px, 4vw, 40px); border: 1px solid var(--border-strong); border-radius: var(--radius); background: linear-gradient(145deg, var(--card), var(--bg-2)); }
+.cost-infographic h3 { margin: 8px 0; font-size: clamp(24px, 4vw, 38px); }
+.cost-infographic figcaption > p:last-child, .cost-note { color: var(--text-2); }
+.cost-effort { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); align-items: center; gap: 28px; margin: 24px 0; }
+.cost-highlight strong { display: block; color: var(--cyan); font-size: clamp(48px, 8vw, 84px); line-height: 1; }
+.cost-highlight span { display: block; margin-top: 8px; }
+.cost-bars p { margin: 12px 0 6px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 12px; }
+.cost-track { display: block; height: 10px; border-radius: 10px; background: var(--bg); overflow: hidden; }
+.cost-track > span { display: block; height: 100%; border-radius: inherit; }
+.cost-manual { width: 100%; background: var(--text-2); }
+.cost-delivered { width: 4%; background: var(--cyan); }
+.cost-options { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; margin: 0 0 18px; }
+.cost-options div { padding: 14px; border: 1px solid var(--border-strong); border-radius: 10px; background: var(--bg-2); }
+.cost-options dd { margin: 4px 0 0; font-size: clamp(17px, 2.2vw, 25px); font-weight: 700; }
+.cost-saving strong, .cost-options div:last-child dd { color: var(--cyan); }
+.cost-note { margin-top: 10px; font-size: 13px; }
+@media (max-width: 760px) { .cost-effort { grid-template-columns: 1fr; gap: 10px; } .cost-options { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 360px) { .cost-options { grid-template-columns: 1fr; } }
