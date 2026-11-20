@@ -64,6 +64,14 @@ public/img/og-image.png
 public/img/topology-poster-1280.webp
 public/img/topology-poster-800.webp
 public/img/topology-poster-full.webp
+public/img/vendors/checkpoint.svg
+public/img/vendors/cisco.svg
+public/img/vendors/extreme.svg
+public/img/vendors/f5.svg
+public/img/vendors/fortinet.svg
+public/img/vendors/juniper.svg
+public/img/vendors/netscaler.svg
+public/img/vendors/palo.svg
 public/index.html
 public/js/site.js
 public/robots.txt
