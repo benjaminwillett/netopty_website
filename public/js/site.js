@@ -55,6 +55,21 @@
     });
   });
 
+  var copyEmail = $("[data-copy-email]");
+  var emailAddress = $("#enquiry-address");
+  var copyStatus = $("[data-copy-status]");
+  if (copyEmail && emailAddress && copyStatus && navigator.clipboard) {
+    copyEmail.hidden = false;
+    copyEmail.addEventListener("click", async function () {
+      try {
+        await navigator.clipboard.writeText(emailAddress.textContent.trim());
+        copyStatus.textContent = "Email address copied.";
+      } catch (error) {
+        copyStatus.textContent = "Select and copy the email address above.";
+      }
+    });
+  }
+
   var year = $("[data-year]");
   if (year) year.textContent = String(new Date().getFullYear());
 
@@ -121,7 +136,9 @@
 
   function openLightbox(el) {
     var name = el.getAttribute("data-lightbox");
-    group = $$('[data-lightbox="' + name + '"]');
+    group = $('[data-lightbox="' + name + '"]').filter(function (item) {
+      return item.getClientRects().length > 0;
+    });
     opener = el;
     if (typeof dialog.showModal === "function") dialog.showModal(); else dialog.setAttribute("open", "");
     document.body.style.overflow = "hidden";
