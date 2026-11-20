@@ -164,6 +164,29 @@
             <p>Through an ongoing service agreement, we periodically refresh your documentation to reflect changes in your infrastructure.</p>
           </li>
         </ol>
+
+        <figure class="architecture" id="planned-architecture" aria-labelledby="architecture-title">
+          <figcaption>
+            <h3 id="architecture-title">Planned collector-to-Azure architecture</h3>
+          </figcaption>
+          <ol class="architecture-flow" role="list">
+            <li>
+              <p class="eyebrow">Customer network</p>
+              <h4>On-site Netopty collector</h4>
+              <p>Discovers supported network devices and processes configuration and inventory data locally. Prepares a sanitised snapshot for reporting.</p>
+            </li>
+            <li>
+              <p class="eyebrow">Outbound transfer</p>
+              <h4>Sanitised snapshot</h4>
+              <p>The collector initiates an authenticated, encrypted connection to Azure. The transfer requires no inbound connection to the customer network.</p>
+            </li>
+            <li>
+              <p class="eyebrow">Microsoft Azure</p>
+              <h4>Hosted reporting</h4>
+              <p>Netopty generates technical as-built reports, device inventories and network diagrams from the snapshot.</p>
+            </li>
+          </ol>
+        </figure>
       </div>
     </section>
 

@@ -567,3 +567,43 @@ p { margin: 0; }
   .vendor-grid li { min-height: 68px; }
   .vendor-grid img { height: 38px; }
 }
+
+/* ---------- Planned architecture ---------- */
+.architecture { margin: 36px 0 0; }
+.architecture figcaption { margin-bottom: 16px; }
+.architecture-flow {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 34px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.architecture-flow li {
+  position: relative;
+  padding: 20px;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius);
+  background: linear-gradient(145deg, var(--card), var(--bg-2));
+}
+.architecture-flow li + li::before {
+  content: "";
+  position: absolute;
+  top: calc(50% - 6px);
+  left: -24px;
+  width: 10px;
+  height: 10px;
+  border-top: 2px solid var(--cyan);
+  border-right: 2px solid var(--cyan);
+  transform: rotate(45deg);
+}
+.architecture-flow h4 { margin: 6px 0; font: 600 1.05rem var(--font-head); }
+.architecture-flow li > p:last-child { color: var(--text-2); font-size: 15px; }
+@media (max-width: 760px) {
+  .architecture-flow { grid-template-columns: 1fr; gap: 26px; }
+  .architecture-flow li + li::before {
+    top: -20px;
+    left: calc(50% - 6px);
+    transform: rotate(135deg);
+  }
+}
