@@ -1,5 +1,6 @@
 .env.example
 .gitattributes
+.github/workflows/pages.yml
 .gitignore
 DEPLOYMENT_GUIDE.md
 README.md
