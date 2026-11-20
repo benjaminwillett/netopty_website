@@ -23,15 +23,19 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: actions/configure-pages@v5
+        id: pages
       - name: Prepare the static site
+        env:
+          NETOPTY_PAGES_URL: ${{ steps.pages.outputs.base_url }}
         run: |
           cp -a public _site
           python - <<'PY'
+          import os
           import re
           from pathlib import Path
 
           root = Path('_site')
-          base = 'https://benjaminwillett.github.io/netopty_website/'
+          base = os.environ['NETOPTY_PAGES_URL'].rstrip('/') + '/'
           page = root / 'index.html'
           html = page.read_text()
           html = re.sub(r'^ *<li><a[^\n]*href="#contact"[^\n]*</li>\n', '', html, flags=re.M)
