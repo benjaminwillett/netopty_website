@@ -30,6 +30,7 @@ jobs:
         run: |
           cp -a public _site
           python - <<'PY'
+          import hashlib
           import os
           import re
           from pathlib import Path
@@ -46,7 +47,6 @@ jobs:
           html = html.replace('https://netopty.com/', base)
           if re.search(r'<form\b|data-enquiry|#contact', html):
               raise SystemExit('The published page still contains enquiry controls')
-          page.write_text(html)
 
           script = root / 'js/site.js'
           js = script.read_text().replace('topology demo and enquiry form', 'and topology demo')
@@ -62,6 +62,11 @@ jobs:
           css = re.sub(r'^.*(?:\.enquiry-form|^\.contact-title).*$\n', '', css, flags=re.M)
           css = css.replace('.pricing-panel, .contact-grid', '.pricing-panel').replace(', .contact-copy p.eyebrow', '')
           css_file.write_text(css)
+          css_digest = hashlib.sha256(css_file.read_bytes()).hexdigest()[:12]
+          versioned_css = css_file.with_name(f"site.{css_digest}.css")
+          versioned_css.write_bytes(css_file.read_bytes())
+          html = html.replace('href="css/site.css"', f'href="css/{versioned_css.name}"')
+          page.write_text(html)
 
           sitemap = root / 'sitemap.xml'
           sitemap.write_text(sitemap.read_text().replace('https://netopty.com/', base))
