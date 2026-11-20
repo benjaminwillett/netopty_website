@@ -259,6 +259,17 @@
           </li>
         </ol>
 
+        <section class="architecture" id="discovery-prerequisites" aria-labelledby="prerequisites-title">
+          <h3 id="prerequisites-title">What we need for discovery</h3>
+          <p class="sample-note">We confirm these prerequisites with your team before collection. Gaps in access, inventory, DNS or neighbour data can limit what we can document.</p>
+          <ul class="feature-panel">
+            <li class="feature"><h4>CDP or LLDP</h4><p>Enable CDP or LLDP on relevant links so Netopty can discover neighbours and map device-to-device connections.</p></li>
+            <li class="feature"><h4>SSH or Telnet access</h4><p>Provide management reachability and authorised credentials with permission to run the required read-only commands. SSH is preferred. Telnet can be used for legacy devices where your policy permits it.</p></li>
+            <li class="feature"><h4>Source-of-truth inventory</h4><p>Provide an authoritative inventory, such as NetBox, with in-scope devices, management addresses and site assignments.</p></li>
+            <li class="feature"><h4>Device DNS records</h4><p>Ensure in-scope device management hostnames resolve from the discovery environment.</p></li>
+          </ul>
+        </section>
+
         <figure class="architecture" id="planned-architecture" aria-labelledby="architecture-title">
           <figcaption>
             <h3 id="architecture-title">Planned collector-to-Azure architecture</h3>
@@ -395,7 +406,7 @@
           <h2 id="questions-title">Questions about Netopty</h2>
         </div>
         <div class="feature-panel">
-          <details class="feature"><summary>How do you access and collect data?</summary><p>We agree the access method, devices in scope and collection requirements with your IT team before discovery.</p></details>
+          <details class="feature"><summary>How do you access and collect data?</summary><p>We agree the access method, devices in scope and collection requirements with your IT team before discovery. <a href="#discovery-prerequisites">See the discovery prerequisites.</a></p></details>
           <details class="feature" id="coverage"><summary>Which devices and details can you document?</summary><p>Coverage depends on the device model, software version and discoverable data. We confirm your device mix during scoping. Wireless discovery can include visible access points and switch-port mappings. Physical cabling, rack layouts and RF surveys fall outside the discovery scope.</p></details>
           <details class="feature"><summary>What do we receive?</summary><p>The service can deliver PDF and editable Word as-built reports, device audit spreadsheets and Layer 1, 2 and 3 topology diagrams. We agree the deliverables and refresh cadence during scoping.</p></details>
           <details class="feature"><summary>What determines the price?</summary><p>We scope the initial engagement and ongoing service around the number of sites, device mix, access requirements, deliverables and refresh frequency.</p></details>
