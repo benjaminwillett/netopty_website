@@ -66,7 +66,8 @@ def test_download_button_needs_no_registration_and_does_not_preload():
     link = re.search(r'<a [^>]*href="/samples/Netopty_Sample_Network_As-Built_Report\.pdf"[^>]*>(.*?)</a>', PAGE, re.S)
     assert link and "Download Full Sample Report" in link.group(1)
     assert "download" in link.group(0)
-    block = PAGE[PAGE.index('id="sample-reports"'):PAGE.index('id="topology"')]
+    start = PAGE.index('id="sample-reports"')
+    block = PAGE[start:PAGE.index('</section>', start)]
     assert link.group(0) in block
     assert "No registration" in block
     # The PDF loads only when asked for: not embedded, framed, preloaded or prefetched.
