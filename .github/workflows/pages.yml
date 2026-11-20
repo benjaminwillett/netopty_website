@@ -56,6 +56,10 @@ jobs:
           if not marker or '/api/' in code:
               raise SystemExit('Unable to remove the enquiry script safely')
           script.write_text(code + '})();\n')
+          script_digest = hashlib.sha256(script.read_bytes()).hexdigest()[:12]
+          versioned_script = script.with_name(f"site.{script_digest}.js")
+          versioned_script.write_bytes(script.read_bytes())
+          html = html.replace('src="js/site.js"', f'src="js/{versioned_script.name}"')
 
           css_file = root / 'css/site.css'
           css = re.sub(r'/\* ---------- Contact ---------- \*/.*?(?=/\* ---------- Footer)', '', css_file.read_text(), flags=re.S)
