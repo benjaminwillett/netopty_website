@@ -137,7 +137,7 @@
 
   function openLightbox(el) {
     var name = el.getAttribute("data-lightbox");
-    group = $('[data-lightbox="' + name + '"]').filter(function (item) {
+    group = $$('[data-lightbox="' + name + '"]').filter(function (item) {
       return !item.closest("details:not([open])") && item.getClientRects().length > 0;
     });
     opener = el;
