@@ -55,6 +55,9 @@
     });
   });
 
+  var year = $("[data-year]");
+  if (year) year.textContent = String(new Date().getFullYear());
+
   var copyEmail = $("[data-copy-email]");
   var emailAddress = $("#enquiry-address");
   var copyStatus = $("[data-copy-status]");
@@ -70,8 +73,6 @@
     });
   }
 
-  var year = $("[data-year]");
-  if (year) year.textContent = String(new Date().getFullYear());
 
   // ---------- Lightbox ----------
   var dialog = $("#lightbox");
