@@ -140,11 +140,13 @@ def write_gallery(items: list[dict], alt_site: str):
 
     two = "(max-width: 640px) calc(100vw - 32px), (max-width: 1080px) 46vw, 590px"
     three = "(max-width: 640px) calc(100vw - 32px), (max-width: 1080px) 46vw, 390px"
-    block = ("<!-- gallery:start -->\n          <div class=\"gallery-row-2\">\n            "
-             + "\n            ".join(card(i, two) for i in items[:4])
-             + "\n          </div>\n          <div class=\"gallery-row-3\">\n            "
-             + "\n            ".join(card(i, three) for i in items[4:])
-             + "\n          </div>\n          <!-- gallery:end -->")
+    block = ("<!-- gallery:start -->\n          <div class=\"gallery-row-3\">\n            "
+             + "\n            ".join(card(items[i], three) for i in (0, 2, 1))
+             + "\n          </div>\n          <details class=\"more-examples\">\n"
+             + "            <summary>View more samples</summary>\n"
+             + "            <div class=\"gallery-row-2\">\n            "
+             + "\n            ".join(card(i, two) for i in items[3:])
+             + "\n            </div>\n          </details>\n          <!-- gallery:end -->")
     index = PUBLIC / "index.html"
     page = index.read_text(encoding="utf-8")
     page, n = re.subn(r"<!-- gallery:start -->.*?<!-- gallery:end -->", lambda _: block, page, flags=re.S)

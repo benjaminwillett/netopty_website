@@ -323,7 +323,7 @@ def test_every_referenced_asset_exists():
 def test_gallery_has_the_seven_figures():
     page = (PUBLIC / "index.html").read_text(encoding="utf-8")
     titles = re.findall(r'<figure class="shot-card">\s*<h3>([^<]+)</h3>', page)
-    assert titles == ["Executive summary", "Findings register", "Physical topology", "Access and addressing services",
+    assert titles == ["Executive summary", "Physical topology", "Findings register", "Access and addressing services",
                       "Key risks and next actions", "Engineering connectivity", "Readiness assessment"]
 
 

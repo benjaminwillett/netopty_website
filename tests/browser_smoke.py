@@ -136,6 +136,7 @@ def run(base: str, out: Path) -> dict:
         check("no dead in-page links", not dead, dead)
 
         # ---------------------------------------------------------------- gallery and lightbox
+        page.locator(".more-examples summary").click()
         scroll_all(page)
         imgs = page.evaluate("""() => [...document.querySelectorAll('.shot-frame img')].map(i => ({
             src: i.currentSrc, ok: i.complete && i.naturalWidth > 0,
