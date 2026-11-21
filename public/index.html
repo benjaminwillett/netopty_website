@@ -73,9 +73,10 @@
     <section class="hero" aria-labelledby="hero-title">
       <div class="container hero-grid">
         <div>
-          <p class="eyebrow">Network discovery &amp; reporting</p>
-          <h1 id="hero-title">Managed network <span class="accent">documentation.</span></h1>
-          <p class="hero-lede">For enterprise IT teams. Get technical as-built reports, topology diagrams and device inventories, refreshed on an agreed schedule.</p>
+          <p class="eyebrow">Network discovery &amp; as-built documentation</p>
+          <h1 id="hero-title">Your network, <span class="accent">documented from its own evidence.</span></h1>
+          <p class="hero-lede">A Netopty collector on your site reads your switches and firewalls. You get the as-built report, topology diagrams and device inventory in your portal, with every finding traced to the configuration it rests on, refreshed on the schedule you set.</p>
+          <p class="hero-proof"><strong>25 hospital networks documented in five working days</strong> by one engineer. <a href="#business-case">See the hospital transition case</a></p>
           <div class="hero-actions">
             <a class="btn btn-primary" href="#enquire">Discuss your network
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
@@ -200,7 +201,6 @@
       </div>
     </section>
 
-    <aside class="container outcome-summary" aria-label="Hospital transition result"><p><strong>25 hospital networks documented in five working days</strong> by one engineer. <a href="#business-case">See the hospital transition case</a></p></aside>
 
     <!-- What we deliver -->
     <section class="features" id="services" aria-labelledby="services-title">
@@ -283,7 +283,7 @@
         <figure class="architecture" id="planned-architecture" aria-labelledby="architecture-title">
           <figcaption>
             <h3 id="architecture-title">Netopty Collector &amp; Reporting Architecture</h3>
-            <p class="sample-note"><strong>Roadmap concept.</strong> Today, Netopty agrees access and collection with your IT team and delivers the finished documentation for review. The planned on-site collector sends a sanitised snapshot to Azure over an encrypted outbound connection. Azure generates reports for access through the planned customer portal.</p>
+            <p class="sample-note">The Netopty collector runs on your site and sends a sanitised discovery snapshot to the Netopty service in Azure over an encrypted outbound connection. The service generates your reports, which you access through the customer portal.</p>
           </figcaption>
           <a class="architecture-artwork" href="/img/planned-collector-to-azure.webp" aria-label="Open the full-size Netopty architecture infographic">
             <img src="/img/planned-collector-to-azure.webp" alt="How Netopty Works. An on-site collector sends a discovery snapshot over an encrypted outbound connection to the hosted reporting service. The concept includes a customer portal for reports, schedules, document uploads and access management." width="1536" height="512" loading="lazy" decoding="async">
@@ -442,14 +442,39 @@
           <li class="vendor-card-labeled"><img src="/img/vendors/ivanti.png" alt="" loading="lazy" decoding="async"><span class="vendor-label">Ivanti</span></li>
           <li class="vendor-card-labeled"><img src="/img/vendors/netbox.svg" alt="" loading="lazy" decoding="async"><span class="vendor-label">NetBox</span></li>
         </ul>
-        <p class="vendor-note">Netopty analyses Cisco, Extreme Networks and Palo Alto Networks devices in depth. Documentation for other vendors and platforms depends on the equipment, services and information Netopty discovers. <a href="#coverage">See the platform coverage guide.</a></p>
         <div class="coverage-guide" id="coverage" aria-labelledby="coverage-title">
-          <h3 id="coverage-title">Platform coverage guide</h3>
-          <dl>
-            <div><dt>Switching and routing</dt><dd>Device inventory, interfaces and topology where supported. Coverage depends on model, software version and neighbour data.</dd></div>
-            <div><dt>Firewalls and application delivery</dt><dd>Inventory and supported configuration details. Available outputs depend on platform, version and agreed access.</dd></div>
-            <div><dt>Cloud and virtual networking</dt><dd>Documentation is scoped to the available inventory, interfaces and access for each environment.</dd></div>
-          </dl>
+          <h3 id="coverage-title">Platform coverage</h3>
+          <div class="coverage-scroll">
+            <table class="coverage-table">
+              <caption>Network and security devices</caption>
+              <thead><tr><th scope="col">Platform</th><th scope="col">Inventory &amp; hardware</th><th scope="col">Interfaces &amp; VLANs</th><th scope="col">Topology</th><th scope="col">Config-based findings</th></tr></thead>
+              <tbody>
+              <tr><th scope="row">Cisco IOS / IOS-XE</th><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
+              <tr><th scope="row">Extreme EXOS, VOSS / Fabric Engine</th><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
+              <tr><th scope="row">Palo Alto PAN-OS</th><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
+              <tr><th scope="row">Juniper</th><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
+              <tr><th scope="row">NetScaler</th><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
+              <tr><th scope="row">Arista</th><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
+              <tr><th scope="row">HP / HPE</th><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
+              <tr><th scope="row">Fortinet</th><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
+              <tr><th scope="row">Check Point</th><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
+              <tr><th scope="row">F5</th><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="coverage-scroll">
+            <table class="coverage-table">
+              <caption>Cloud and virtual networking</caption>
+              <thead><tr><th scope="col">Platform</th><th scope="col">Resource inventory</th><th scope="col">Virtual networks &amp; subnets</th><th scope="col">Connectivity &amp; routing</th><th scope="col">Security rules &amp; findings</th></tr></thead>
+              <tbody>
+              <tr><th scope="row">Microsoft Azure</th><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
+              <tr><th scope="row">AWS</th><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
+              <tr><th scope="row">Google Cloud (GCP)</th><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
+              <tr><th scope="row">VMware NSX</th><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="vendor-note">SSH is used by default. Telnet is available for named legacy devices where your policy permits it. Physical cabling, rack layouts and RF surveys are outside the discovery scope.</p>
         </div>
       </div>
     </section>
@@ -462,9 +487,9 @@
         </div>
         <div class="faq-list">
           <details class="feature"><summary>How do you access and collect data?</summary><p>We agree the access method, devices in scope and collection requirements with your IT team before discovery. <a href="#discovery-prerequisites">See the discovery prerequisites.</a></p></details>
-          <details class="feature"><summary>Which devices and details can you document?</summary><p>Coverage depends on the device model, software version and discoverable data. We confirm your device mix during scoping. Wireless discovery can include visible access points and switch-port mappings. Physical cabling, rack layouts and RF surveys fall outside the discovery scope.</p></details>
+          <details class="feature"><summary>Which devices and details can you document?</summary><p>Netopty documents the network, security, cloud and virtual networking platforms listed in the <a href="#coverage">platform coverage tables</a>. Wireless discovery includes visible access points and their switch-port mappings. Physical cabling, rack layouts and RF surveys fall outside the discovery scope.</p></details>
           <details class="feature"><summary>What do we receive?</summary><p>The service can deliver PDF and editable Word as-built reports, device audit spreadsheets and Layer 1, 2 and 3 topology diagrams. We agree the deliverables and refresh cadence during scoping.</p></details>
-          <details class="feature"><summary>How are collected data and credentials handled?</summary><p>We agree which data is collected and how it is handled for your engagement. We also agree how authorised read-only access and credentials are provided. Share your security and retention requirements during scoping.</p></details>
+          <details class="feature"><summary>How are collected data and credentials handled?</summary><p><strong>Collection stays inside your network.</strong> The Netopty collector runs on your site and connects to your devices with a dedicated least-privilege, read-only account. It runs show and display commands only and never changes configuration. Device credentials stay on the collector.</p><p><strong>Outbound only, encrypted.</strong> The collector opens an encrypted outbound connection (TLS 1.2 or later) to the Netopty service and validates the service's certificate. No inbound access to your network is needed.</p><p><strong>One collector, one customer, one site.</strong> Each collector is bound to a single customer and site, and its credential can be rotated or revoked at any time.</p><p><strong>Your data is stored separately.</strong> Each customer has its own storage, encrypted at rest, with access granted by identity. No shared store holds customer data. Customer-managed keys are available for larger customers.</p><p><strong>Each report is generated in isolation.</strong> A report job runs in its own container with short-lived, read-only access to your evidence alone, and is destroyed when the job ends.</p><p><strong>You control who sees it.</strong> Your team signs in to the portal through your own identity provider. Netopty engineers get access only by per-customer, time-limited assignment.</p><p><strong>Everything is logged.</strong> Uploads, report runs, downloads and any access by Netopty staff are written to an append-only audit log that you can read.</p><p><strong>Retention, deletion and export.</strong> Evidence is kept for the retention period in your agreement and then removed automatically. You can delete a site or your whole account and receive a deletion certificate, or export your evidence and reports at any time.</p></details>
           <details class="feature"><summary>What determines the price?</summary><p>We scope the initial engagement and ongoing service around the number of sites, device mix, access requirements, deliverables and refresh frequency.</p></details>
         </div>
       </div>
