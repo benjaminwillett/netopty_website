@@ -275,7 +275,7 @@
           <ul class="prerequisite-list">
             <li class="feature"><h4>CDP or LLDP</h4><p>Enable CDP or LLDP on relevant links so Netopty can discover neighbours and map device-to-device connections.</p></li>
             <li class="feature"><h4>SSH and read-only commands</h4><p>Provide management reachability and authorised credentials with permission to run the required read-only commands. SSH is preferred. Telnet can be used for legacy devices where your policy permits it.</p></li>
-            <li class="feature"><h4>Source-of-truth inventory</h4><p>Provide an authoritative inventory, such as NetBox, with in-scope devices, management addresses and site assignments.</p></li>
+            <li class="feature"><h4>Source-of-truth inventory</h4><p>Provide an authoritative inventory with in-scope devices, management addresses and site assignments. Inventory sources include ServiceNow, Ivanti and NetBox.</p></li>
             <li class="feature"><h4>Device DNS records</h4><p>Ensure in-scope device management hostnames resolve from the discovery environment.</p></li>
           </ul>
         </section>
@@ -412,7 +412,7 @@
 
     <section class="section tight-top vendor-support" aria-labelledby="vendors-title">
       <div class="container">
-        <h2 id="vendors-title">Supported vendors</h2>
+        <h2 id="vendors-title">Supported vendors and inventory sources</h2>
         <h3 class="vendor-group-title">Network infrastructure</h3>
         <ul class="vendor-grid" role="list">
           <li><img src="/img/vendors/cisco.svg" alt="Cisco" loading="lazy" decoding="async"></li>
@@ -435,6 +435,12 @@
           <li class="vendor-card-labeled"><img src="/img/vendors/aws.svg" alt="" loading="lazy" decoding="async"><span class="vendor-label">AWS</span></li>
           <li class="vendor-card-labeled"><img src="/img/vendors/gcp.svg" alt="" loading="lazy" decoding="async"><span class="vendor-label">Google Cloud (GCP)</span></li>
           <li class="vendor-card-labeled"><img src="/img/vendors/vmware-nsx.svg" alt="" loading="lazy" decoding="async"><span class="vendor-label">VMware NSX</span></li>
+        </ul>
+        <h3 class="vendor-group-title">Inventory sources</h3>
+        <ul class="vendor-grid" role="list" aria-label="Inventory sources">
+          <li><span class="vendor-label">ServiceNow</span></li>
+          <li><span class="vendor-label">Ivanti</span></li>
+          <li><span class="vendor-label">NetBox</span></li>
         </ul>
         <p class="vendor-note">Netopty analyses Cisco, Extreme Networks and Palo Alto Networks devices in depth. Documentation for other vendors and platforms depends on the equipment, services and information Netopty discovers. <a href="#coverage">See the platform coverage guide.</a></p>
         <div class="coverage-guide" id="coverage" aria-labelledby="coverage-title">
