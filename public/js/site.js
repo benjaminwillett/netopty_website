@@ -74,6 +74,24 @@
   }
 
 
+  // ---------- Manual cost estimate ----------
+  var estimate = $("[data-estimate]");
+  if (estimate) {
+    var estimateValue = function (name, low, high) {
+      var v = parseFloat($('[data-estimate-input="' + name + '"]', estimate).value);
+      return isFinite(v) ? Math.min(high, Math.max(low, v)) : null;
+    };
+    var updateEstimate = function () {
+      var sites = estimateValue("sites", 1, 10000), days = estimateValue("days", 0.5, 365);
+      var rate = estimateValue("rate", 100, 20000), cycles = estimateValue("cycles", 1, 52);
+      if (sites === null || days === null || rate === null || cycles === null) return;
+      var total = sites * days * cycles;
+      $("[data-estimate-cost]", estimate).textContent = "$" + Math.round(total * rate).toLocaleString("en-AU");
+      $("[data-estimate-days]", estimate).textContent = (Math.round(total * 10) / 10).toLocaleString("en-AU");
+    };
+    estimate.addEventListener("input", updateEstimate);
+  }
+
   // ---------- Lightbox ----------
   var dialog = $("#lightbox");
   var viewport = $(".lb-viewport", dialog);

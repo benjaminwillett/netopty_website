@@ -64,7 +64,7 @@ def test_packaging_includes_the_reviewed_sample():
 
 def test_download_button_needs_no_registration_and_does_not_preload():
     link = re.search(r'<a [^>]*href="/samples/Netopty_Sample_Network_As-Built_Report\.pdf"[^>]*>(.*?)</a>', PAGE, re.S)
-    assert link and "Download Full Sample Report" in link.group(1)
+    assert link and "Download full sample report" in link.group(1)
     assert "download" in link.group(0)
     start = PAGE.index('id="sample-reports"')
     block = PAGE[start:PAGE.index('</section>', start)]
@@ -79,7 +79,7 @@ def test_findings_showcase():
     i = PAGE.index('id="findings"')
     block = PAGE[i:PAGE.index("</section>", i)]
     assert "More than documentation. Actionable network insights." in block
-    for title in ("Identify Configuration Issues", "Understand the Evidence", "Plan Improvements"):
+    for title in ("Identify configuration issues", "Understand the evidence", "Plan improvements"):
         assert f"<h3>{title}</h3>" in block
     assert "synthetic" in block                              # the sample's findings are from the fictional network
     assert "not a security audit" in block                   # qualified, not overstated

@@ -62,7 +62,6 @@ public/img/hero/page3-full.webp
 public/img/netopty-mark.svg
 public/img/network-texture.svg
 public/img/og-image.png
-public/img/planned-collector-to-azure.webp
 public/img/topology-poster-1280.webp
 public/img/topology-poster-800.webp
 public/img/topology-poster-full.webp

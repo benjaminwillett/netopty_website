@@ -103,7 +103,7 @@
     </section>
 
     <!-- Sample documentation -->
-    <section class="section tight-top" id="sample-reports" aria-labelledby="output-title">
+    <section class="section band-light" id="sample-reports" aria-labelledby="output-title">
       <div class="container">
         <div class="section-head">
           <p class="eyebrow">Sample documentation</p>
@@ -119,7 +119,7 @@
           </div>
           <a class="btn btn-primary" href="/samples/Netopty_Sample_Network_As-Built_Report.pdf" download type="application/pdf">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 19.5h14"/></svg>
-            Download Full Sample Report
+            Download full sample report
           </a>
         </div>
         <div class="gallery" data-gallery>
@@ -215,28 +215,28 @@
             <div class="icon-box" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.5 15.5 5 5"/></svg>
             </div>
-            <h3>Network Discovery &amp; Assessment</h3>
+            <h3>Network discovery &amp; assessment</h3>
             <p>Identify and assess supported switches, firewalls, wireless infrastructure and other network devices.</p>
           </li>
           <li class="feature">
             <div class="icon-box" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="5" r="2.6"/><circle cx="5" cy="19" r="2.6"/><circle cx="19" cy="19" r="2.6"/><path d="M10.8 7.3 6.3 16.7M13.2 7.3l4.5 9.4M7.6 19h8.8"/></svg>
             </div>
-            <h3>Network Mapping</h3>
+            <h3>Network mapping</h3>
             <p>Understand physical and logical connectivity through detailed network topology and infrastructure diagrams.</p>
           </li>
           <li class="feature">
             <div class="icon-box" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h6"/></svg>
             </div>
-            <h3>Technical As-Built Reports</h3>
+            <h3>Technical as-built reports</h3>
             <p>Receive comprehensive technical documentation covering your network infrastructure, configuration and device relationships.</p>
           </li>
           <li class="feature">
             <div class="icon-box" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12a8 8 0 0 1-14.3 4.9M4 12a8 8 0 0 1 14.3-4.9"/><path d="M18.5 3v4.2h-4.2M5.5 21v-4.2h4.2"/></svg>
             </div>
-            <h3>Ongoing Documentation</h3>
+            <h3>Ongoing documentation</h3>
             <p>Keep your technical documentation current through agreed periodic discovery and reporting services.</p>
           </li>
         </ul>
@@ -282,13 +282,15 @@
 
         <figure class="architecture" id="planned-architecture" aria-labelledby="architecture-title">
           <figcaption>
-            <h3 id="architecture-title">Netopty Collector &amp; Reporting Architecture</h3>
+            <h3 id="architecture-title">Collector and reporting architecture</h3>
             <p class="sample-note">The Netopty collector runs on your site and sends a sanitised discovery snapshot to the Netopty service in Azure over an encrypted outbound connection. The service generates your reports, which you access through the customer portal.</p>
           </figcaption>
-          <a class="architecture-artwork" href="/img/planned-collector-to-azure.webp" aria-label="Open the full-size Netopty architecture infographic">
-            <img src="/img/planned-collector-to-azure.webp" alt="How Netopty Works. An on-site collector sends a discovery snapshot over an encrypted outbound connection to the hosted reporting service. The concept includes a customer portal for reports, schedules, document uploads and access management." width="1536" height="512" loading="lazy" decoding="async">
-            <span class="architecture-open">Open full-size diagram</span>
-          </a>
+          <ol class="arch-flow" role="list">
+            <li><p class="arch-tag">Your site</p><h4>Netopty collector</h4><p>Reads your switches and firewalls with a read-only account. Device credentials stay on the collector.</p></li>
+            <li><p class="arch-tag">Netopty service in Azure</p><h4>Storage and report generation</h4><p>Your evidence is held in your own encrypted storage. Each report is generated in an isolated job.</p></li>
+            <li><p class="arch-tag">Your team</p><h4>Customer portal</h4><p>Reports, diagrams and inventories, refresh schedules and access management, signed in through your identity provider.</p></li>
+          </ol>
+          <p class="arch-note">The collector connects outbound only, over an encrypted connection (TLS 1.2 or later). No inbound access to your network is needed.</p>
         </figure>
       </div>
     </section>
@@ -301,20 +303,32 @@
           <h2 id="findings-title">More than documentation. Actionable network insights.</h2>
           <p>Each report includes the configuration findings Netopty identifies in the collected evidence, with the reasoning behind each one and a recommended next step.</p>
         </div>
+        <figure class="finding-example" aria-labelledby="finding-example-title">
+          <figcaption id="finding-example-title">A finding from the sample headquarters report</figcaption>
+          <div class="finding-card">
+            <p class="finding-head"><span class="sev-badge sev-medium">Medium</span><span class="finding-id">F-SEC-13E8DF</span><span class="finding-confidence">Confidence: Confirmed</span></p>
+            <h3>Access ports have no BPDU guard</h3>
+            <dl>
+              <div><dt>Affected</dt><dd>8 devices: vsp5420-hq-a09 to vsp5420-hq-a16</dd></div>
+              <div><dt>Evidence</dt><dd>The collected configuration of each switch, linked from the evidence register</dd></div>
+              <div><dt>Recommended action</dt><dd>Enable BPDU guard on edge (access) ports, after confirming no switch is legitimately connected to them.</dd></div>
+            </dl>
+          </div>
+        </figure>
         <ul class="benefits insights">
           <li class="benefit">
             <div class="icon-box" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.3 3.9 2.4 17.5A2 2 0 0 0 4.1 20.5h15.8a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/><path d="M12 9v4.5M12 17h.01"/></svg></div>
-            <h3>Identify Configuration Issues</h3>
+            <h3>Identify configuration issues</h3>
             <p>Highlight configuration that departs from common practice or from the rest of the network, such as access ports without BPDU guard, management (VTY) lines not limited by an access list, and NTP or syslog settings that differ between switches.</p>
           </li>
           <li class="benefit">
             <div class="icon-box" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><circle cx="11.5" cy="14" r="2.5"/><path d="m13.4 15.9 2.1 2.1"/></svg></div>
-            <h3>Understand the Evidence</h3>
+            <h3>Understand the evidence</h3>
             <p>Every finding names the affected devices, explains why it matters and links to the configuration evidence it rests on, with a severity and a confidence level, so your engineers can verify it quickly.</p>
           </li>
           <li class="benefit">
             <div class="icon-box" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="4.5" width="17" height="16" rx="2"/><path d="M3.5 9.5h17M8 2.5v4M16 2.5v4M8 14l2 2 4-4"/></svg></div>
-            <h3>Plan Improvements</h3>
+            <h3>Plan improvements</h3>
             <p>Use the recommendations to prioritise remediation and plan changes with your engineering team or service provider.</p>
           </li>
         </ul>
@@ -333,6 +347,7 @@
     <section class="section tight-top" id="business-case" aria-labelledby="business-case-title">
       <div class="container">
         <div class="section-head">
+          <p class="eyebrow">Business case</p>
           <h2 id="business-case-title">What does manual documentation cost?</h2>
           <p>Compare the engineer time you spend collecting data, tracing topology, writing reports and keeping them current with a scoped Netopty engagement. Include review and handover on both sides.</p>
         </div>
@@ -359,11 +374,18 @@
           <p class="cost-saving"><strong>AUD $120,000</strong> estimated labour saving versus in-house manual documentation.</p>
           <p class="cost-note">Illustrative labour estimates in AUD, excluding GST. Manual baseline assumes five engineer-days per hospital. In-house and automated labour use $1,000 per day. Tier-1 estimates use $1,500–$2,200 per day and Big Four estimates use $2,400–$4,000 per day, both over 125 days. Estimates exclude tooling development, project management, mobilisation, travel and licences.</p>
         </figure>
-        <div class="sample-download">
-          <div>
-            <h3>Build the estimate using your own baseline</h3>
-            <p>Multiply documentation hours per site by the number of sites and the loaded hourly cost. Repeat for each refresh cycle to estimate the ongoing cost.</p>
+        <div class="estimate" role="group" aria-labelledby="estimate-title" data-estimate>
+          <div class="estimate-copy">
+            <h3 id="estimate-title">Estimate your own manual cost</h3>
+            <p>Enter your own baseline. The starting values are the hospital example above.</p>
           </div>
+          <div class="estimate-fields">
+            <label>Sites<input type="number" inputmode="numeric" min="1" max="10000" step="1" value="25" data-estimate-input="sites"></label>
+            <label>Engineer-days per site<input type="number" inputmode="decimal" min="0.5" max="365" step="0.5" value="5" data-estimate-input="days"></label>
+            <label>Day rate (AUD)<input type="number" inputmode="numeric" min="100" max="20000" step="50" value="1000" data-estimate-input="rate"></label>
+            <label>Refreshes per year<input type="number" inputmode="numeric" min="1" max="52" step="1" value="1" data-estimate-input="cycles"></label>
+          </div>
+          <p class="estimate-result" role="status"><strong data-estimate-cost>$125,000</strong> per year in manual documentation labour, <span data-estimate-days>125</span> engineer-days.</p>
         </div>
       </div>
     </section>
@@ -379,7 +401,7 @@
         <ul class="engagement">
           <li>
             <p class="tag">Engagement</p>
-            <h3>Initial Discovery &amp; Documentation</h3>
+            <h3>Initial discovery &amp; documentation</h3>
             <ul>
               <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg>Discovery planning and agreed access</li>
               <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg>Network information collection</li>
@@ -391,7 +413,7 @@
           </li>
           <li>
             <p class="tag">Ongoing service</p>
-            <h3>Annual Documentation Service</h3>
+            <h3>Annual documentation service</h3>
             <ul>
               <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg>Agreed scheduled documentation refreshes</li>
               <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg>Updated network inventories</li>
@@ -403,7 +425,7 @@
         </ul>
         <div class="engagement-foot">
           <p>Each proposal is scoped to your environment: the sites and devices to be documented, the access method, and the frequency of documentation refreshes.</p>
-          <a class="btn btn-primary" href="#enquire">Request a proposal
+          <a class="btn btn-primary" href="#enquire">Discuss your network
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
           </a>
         </div>
@@ -505,7 +527,7 @@
             <p>Tell us your site count, device mix and what you need documented. We’ll discuss access, coverage and refresh frequency before scoping a proposal.</p>
           </div>
           <div class="enquiry-actions">
-            <a id="enquiry-address" href="mailto:enquiries@netopty.com?subject=Netopty%20enquiry">enquiries@netopty.com</a>
+            <a id="enquiry-address" class="btn btn-primary" href="mailto:enquiries@netopty.com?subject=Netopty%20enquiry">enquiries@netopty.com</a>
             <button class="btn btn-secondary" type="button" data-copy-email hidden>Copy email address</button>
             <p class="sample-note" role="status" data-copy-status></p>
           </div>

@@ -86,7 +86,7 @@ def run(base: str, out: Path) -> dict:
         # ---------------------------------------------------------------- sample report download and findings
         dl = page.locator('#sample-reports a[href="/samples/Netopty_Sample_Network_As-Built_Report.pdf"]')
         dl.scroll_into_view_if_needed()
-        check("download button visible in Sample Reports", dl.is_visible() and "Download Full Sample Report" in dl.inner_text())
+        check("download button visible in Sample Reports", dl.is_visible() and "Download full sample report" in dl.inner_text())
         with page.expect_download() as d_info:
             dl.click()
         d = d_info.value
