@@ -284,7 +284,7 @@ def test_rate_table_drops_idle_addresses(monkeypatch, aged):
 
 
 # ------------------------------------------------------------------ the deployable public/ directory
-ALLOWED = {".html", ".css", ".js", ".webp", ".png", ".svg", ".woff2", ".txt", ".xml"}
+ALLOWED = {".html", ".css", ".js", ".webp", ".png", ".svg", ".ico", ".woff2", ".txt", ".xml"}
 
 
 def public_files():
@@ -397,7 +397,7 @@ def test_images_carry_no_metadata():
         data = p.read_bytes()
         if p.suffix == ".webp":
             assert b"EXIF" not in data[:4096] and b"XMP " not in data[:4096], p.name
-        if p.suffix == ".png":
+        if p.suffix in (".png", ".ico"):      # an .ico holds PNG images
             assert not any(chunk in data for chunk in (b"tEXt", b"iTXt", b"zTXt", b"eXIf")), p.name
 
 

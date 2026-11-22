@@ -20,6 +20,7 @@ deploy/netopty-site.service
 public/THIRD_PARTY_NOTICES.txt
 public/css/site.css
 public/demo/topology.html
+public/favicon.ico
 public/fonts/OFL-Inter.txt
 public/fonts/OFL-Poppins.txt
 public/fonts/inter-latin-var.woff2

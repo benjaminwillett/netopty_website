@@ -20,7 +20,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 INCLUDE_FILES = ("server.py", "wsgi.py", "requirements.txt")
 INCLUDE_DIRS = ("public",)
-ALLOWED_PUBLIC = {".html", ".css", ".js", ".webp", ".png", ".svg", ".woff2", ".txt", ".xml"}
+ALLOWED_PUBLIC = {".html", ".css", ".js", ".webp", ".png", ".svg", ".ico", ".woff2", ".txt", ".xml"}
 FORBIDDEN_NAMES = {"private_rules.json", ".env", "manifest.json"}
 FORBIDDEN_SUFFIXES = {".pdf", ".xlsx", ".json", ".dot", ".py", ".pyc", ".log", ".zip"}
 # public/ path -> SHA-256 of the reviewed file.
