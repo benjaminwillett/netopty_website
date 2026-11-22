@@ -718,3 +718,9 @@ p { margin: 0; }
 
 /* Final call to action: the address is the button. */
 .cta-band .enquiry-actions .btn-primary { min-width: 0; }
+
+/* Left-aligned section headings throughout (2026-11) */
+.vendor-support { text-align: left; }
+.vendor-grid { justify-content: flex-start; max-width: none; margin-left: 0; margin-right: 0; }
+.vendor-support .vendor-note { margin-left: 0; margin-right: 0; text-align: left; }
+.coverage-guide { max-width: none; margin: 28px 0 0; }
